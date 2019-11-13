@@ -15,10 +15,12 @@ def main():
             1 : make an entry
             2 : update an entry
             3 : delete an entry
-            4 : update Salary
+            4 : update Salary DONE
             5 : print bill 
             6 : generate report 
-            7 : quit\n"""))
+            7 : show staff
+            8 : show patients
+            9 : quit\n"""))
 
         if val == 1:
             print(val)
@@ -48,15 +50,14 @@ def main():
                 nurse = dict()
                 for i in arr: nurse[i] = input("enter the " + i + " : ")
                 print(nurse)
+
+
             if etype == "patient":
-                arr = ['PatientID','Fname','Minit','Lname','DOB','WingID']
-                pat = dict()
-                for i in arr: pat[i] = input("enter the " + i + " : ")
-                print(pat)
-                for n in range(0,int(input("how many nurses : "))):
-                    nurse = input("enter nurse id : ")
-                for d in range(0,int(input("how many doctors : "))):
-                    doc = input("enter doctor id : ")
+                insert.addpatient(c,db)
+                # for n in range(0,int(input("how many nurses : "))):
+                #     nurse = input("enter nurse id : ")
+                # for d in range(0,int(input("how many doctors : "))):
+                #     doc = input("enter doctor id : ")
 
 
 
@@ -66,16 +67,34 @@ def main():
             # print(staff)
             
         if val == 2:
-            
+            print(val)
+            # update.update_patient(c,db)
         if val == 3:
             print(val)
         if val == 4:
             print(val)
+            # update.update_staff_salary(c, db)
         if val == 5:
             print(val)
         if val == 6:
             print(val)
-        if val == 7: 
+        if val == 7:
+            print(val)
+            # select * from STAFF;
+            c.execute("select * from STAFF")
+            rows = c.fetchall()
+            print(rows)
+            for row in rows:
+                print(row)
+        if val == 8:
+            print(val)
+            # select * from PATIENT;
+            c.execute("select * from PATIENT")
+            rows = c.fetchall()
+            print(rows)
+            for row in rows:
+                print(row)        
+        if val == 9: 
             break
 
     db.close()
