@@ -21,6 +21,7 @@ def create_tables(c,db):
 			Fname		VARCHAR(50),
 			Minit		VARCHAR(3),
 			Lname		VARCHAR(50),
+			BloodGrp	VARCHAR(50),
 			DOA			DATE,
 			WingID		INT,
 			ROOM        INT
@@ -93,7 +94,25 @@ def create_tables(c,db):
 			Qual   		VARCHAR(50)
 			);""")
 
+		# c.execute("insert into ROOM values (1, 123, 1, 1200);")
+		# c.execute("insert into ROOM values (1, 223, 2, 1100);")
+		# c.execute("insert into ROOM values (1, 323, 3, 1500);")
+
 		db.commit()
 	except:
 		print("ERROR CREATING TABLES, PLEASE TRY AGAIN")
 		db.rollback()
+
+	# try:
+	# 	c.execute("""insert into STAFF values(1,'abc','A','def','1989-07-08','2015-11-01', 4, 35000, 14);""")
+	# 	c.execute("""insert into STAFF values(2,'jhg','A','ytr','1984-02-05','2015-11-01', 4, 24000, 17);""")
+	# 	c.execute("""insert into STAFF values(3,'djs','A','qwe','1983-05-01','2015-11-01', 4, 10000, 12);""")
+
+	# 	c.execute("""insert into PATIENT values(1, 'kur', 'E', 'hey', '2019-11-01', 2, 201);""")
+	# 	c.execute("""insert into PATIENT values(2, 'djf', 'E', 'ewi', '2019-11-02', 1, 323);""")
+	# 	c.execute("""insert into PATIENT values(3, 'wqe', 'E', 'dsi', '2019-11-03', 1, 124);""")
+
+	# 	db.commit()
+	# except:
+	# 	print("poiuytr")
+	# 	db.rollback()
