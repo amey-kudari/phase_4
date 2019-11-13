@@ -13,29 +13,22 @@ def main():
 
     while True:
         val = int(input("""What would you like to do? Options:
-            1 : make an entry
-            2 : update an entry
-            3 : delete an entry
-            4 : update Salary DONE
-            5 : print bill 
-            6 : generate report 
-            7 : show staff
-            8 : show patients
-            9 : quit\n"""))
+            1  : make an entry
+            2  : update an entry
+            3  : delete an entry
+            4  : update Salary DONE
+            5  : print bill 
+            6  : generate report 
+            7  : show staff
+            8  : show patients
+            9  : quit
+            10 : debug\n"""))
 
         if val == 1:
             print(val)
             etype = input("enter the type of entity (doctor/nurse/patient/dependent) : ")
             print(etype)
-            # if etype == "room":
-            #     arr = ['WingID','RoomNo','Floor','Cost']
-            #     room = dict()
-            #     for i in arr: room[i]=input("enter the " + i + " : ")
-            #     insert.addroom(c,db,room)
-            # if etype == "warden":
-            #     wid = input("enter wing id : ")
-            #     wnm = input("enter warden name : ")
-            #     print(wid)
+
             if etype == "doctor":
                 arr = ['StaffID','Fname','Minit','Lname','DOB','DOJ','Wdays','Salary/hr','Whours','SuperID','OfficeNo','OnCall']
                 doc = dict()
@@ -54,22 +47,23 @@ def main():
 
 
             if etype == "patient":
-                insert.addpatient(c,db)
-                # for n in range(0,int(input("how many nurses : "))):
-                #     nurse = input("enter nurse id : ")
-                # for d in range(0,int(input("how many doctors : "))):
-                #     doc = input("enter doctor id : ")
-
-
+                p_id = insert.addpatient(c,db)
+                for n in range(0,int(input("how many nurses : "))):
+                    nurse = input("enter nurse id : ")
+                    insert.lnk_np(c,db,nurse,p_id)
+                for d in range(0,int(input("how many doctors : "))):
+                    doc = input("enter doctor id : ")
+                    insert.lnk_dp(c,db,doc,p_id)
 
             # staff = dict()
             # arr = ['StaffID','Fname','Minit','Lname','DOB','DOJ','Wdays','Salary/hr','Whours']
             # for i in arr: staff[i]=input("enter the " + i + " : ")
             # print(staff)
-            
+
         if val == 2:
             print(val)
             update.update_patient(c,db)
+
         if val == 3:
             print(val)
             delete.del_patient(c,db)
@@ -100,6 +94,15 @@ def main():
                 print(row)        
         if val == 9: 
             break
+        if val == 10:
+            table_names = ['STAFF', 'PATIENT', 'WING', 'ROOM', 'DEPENDENT', 'DOCTORS', 'NURSE', 'NURSES', 'WORKS_WITH', 'SPECIALITY', 'QUALIFICATIONS', 'TREATS', 'TREATED']
+            for t in table_names:
+                print(" --------------- ")
+                print("TABLE : " + t)
+                c.execute("SELECT * FROM " + t + ";")
+                d = c.fetchall()
+                if len(d):
+                    for i in d : print(i)
 
     db.close()
 

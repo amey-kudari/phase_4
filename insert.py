@@ -50,6 +50,23 @@ def addpatient(c, db):
 	print(command)
 	c.execute(command)
 	db.commit()
+	return patid
 	# except:
 	# 	print("Error registering new patient")
 	# 	db.rollback()
+
+def lnk_np(c,db,n_id,p_id):
+	try:
+		c.execute("INSERT INTO NURSES VALUES(" + p_id + "," + n_id + ");")
+		db.commit()
+	except:
+		print("error linking nurse and patient")
+		db.rollback()
+
+def lnk_dp(c,db,d_id,p_id):
+	try:
+		c.execute("INSERT INTO TREATS VALUES(" + d_id + "," + p_id + ");")
+		db.commit()
+	except:
+		print("error linking doctor and patient")
+		db.rollback()		
