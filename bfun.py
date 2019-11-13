@@ -102,9 +102,9 @@ def create_tables(c,db):
 		c.execute("""insert into STAFF values(2,'jhg','A','ytr','1984-02-05','2015-11-01', 4, 24000, 17);""")
 		c.execute("""insert into STAFF values(3,'djs','A','qwe','1983-05-01','2015-11-01', 4, 10000, 12);""")
 
-		c.execute("""insert into PATIENT values(1, 'kur', 'E', 'hey', 'A' ,'2019-11-01', 2, 201);""")
-		c.execute("""insert into PATIENT values(2, 'djf', 'E', 'ewi', 'b' ,'2019-11-02', 1, 323);""")
-		c.execute("""insert into PATIENT values(3, 'wqe', 'E', 'dsi', 'D' ,'2019-11-03', 1, 124);""")
+		c.execute("""insert into PATIENT values(1, 'kur', 'E', 'hey', 'A' ,'2019-11-01', 1, 123);""")
+		c.execute("""insert into PATIENT values(2, 'djf', 'E', 'ewi', 'b' ,'2019-11-02', 1, 223);""")
+		c.execute("""insert into PATIENT values(3, 'wqe', 'E', 'dsi', 'D' ,'2019-11-03', 1, 323);""")
 
 
 		db.commit()

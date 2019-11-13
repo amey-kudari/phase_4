@@ -80,6 +80,7 @@ def main():
             calculate.print_bill(c,db)
         if val == 6:
             print(val)
+            calculate.calculate_revenue(c,db)
         if val == 7:
             print(val)
             # select * from STAFF;
