@@ -14,7 +14,7 @@ def update_patient(c,db):
         pid = input("Enter PatientID of patient: ")
         attr = input("Enter attribute to change: ")
         new_val = input("Enter updated value of attribute: ")
-        command = "UPDATE PATIENT SET " + attr + " = " + new_val + " WHERE PatientID = " + pid
+        command = "UPDATE PATIENT SET " + attr + "=" + new_val + " WHERE PatientID = " + pid + ";"
         c.execute(command)
         db.commit()
     except:

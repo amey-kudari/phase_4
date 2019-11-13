@@ -85,7 +85,7 @@ def main():
             # select * from STAFF;
             c.execute("select * from STAFF")
             rows = c.fetchall()
-            print(rows)
+            # print(rows)
             for row in rows:
                 print(row)
         if val == 8:
@@ -93,7 +93,7 @@ def main():
             # select * from PATIENT;
             c.execute("select * from PATIENT")
             rows = c.fetchall()
-            print(rows)
+            # print(rows)
             for row in rows:
                 print(row)        
         if val == 9: 
