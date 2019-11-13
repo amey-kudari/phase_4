@@ -79,9 +79,7 @@ def create_tables(c,db):
 
 		c.execute("""create table TREATED(
 			PatientID	INT,
-			WingID		INT,
-			NurseID		INT,
-			DoctorID	INT
+			WingID		INT
 			);""")
 
 		c.execute("""create table SPECIALITY(

@@ -1,6 +1,6 @@
 import pymysql,sys,random
 import bfun
-import insert
+import insert, delete
 import update
 import calculate
 
@@ -72,6 +72,8 @@ def main():
             update.update_patient(c,db)
         if val == 3:
             print(val)
+            delete.del_patient(c,db)
+
         if val == 4:
             print(val)
             update.update_staff_salary(c, db)
