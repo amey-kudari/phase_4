@@ -76,6 +76,7 @@ def main():
             calculate.print_bill(c,db)
         if val == 6:
             print(val)
+            calculate.calculate_revenue(c,db)
         if val == 7:
             print(val)
             # select * from STAFF;
@@ -95,7 +96,7 @@ def main():
         if val == 9: 
             break
         if val == 10:
-            table_names = ['STAFF', 'PATIENT', 'WING', 'ROOM', 'DEPENDENT', 'DOCTORS', 'NURSE', 'NURSES', 'WORKS_WITH', 'SPECIALITY', 'QUALIFICATIONS', 'TREATS', 'TREATED']
+            table_names = ['STAFF', 'PATIENT', 'WING', 'ROOM', 'DEPENDENT', 'DOCTORS', 'NURSE', 'NURSES', 'SPECIALITY', 'QUALIFICATIONS', 'TREATS', 'TREATED']
             for t in table_names:
                 print(" --------------- ")
                 print("TABLE : " + t)
