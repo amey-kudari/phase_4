@@ -25,26 +25,31 @@ def addstaff(c,db,staff):
 	except:
 		print("ERROR ADDING STAFF") 
 
-# def addqual(c,db,staff):
-# 	try:
-# 		order = ['StaffID','Qual']
-	
-
-def addpatient(c, db):
+def addqual(c,db,staff):
 	# try:
-	patid = input("Enter PatientID: ")
-	fname = input("Enter First Name: ")
-	minit = input("Enter Middle Initials: ")
-	lname = input("Enter Last Name: ")
-	bldg = input("Enter Blood Group: ")
-	doa = input("Enter Date of Admission: ")
-	wingid = input("Enter WingID: ")
-	room = input("Enter Room no: ")
-
-	command = "INSERT INTO PATIENT VALUES (" + patid + ',\'' + fname + '\',\''+ minit + '\',\''+ lname + '\',\''+ bldg + '\', \''+ doa + '\', '+ wingid + ',' + room + ')'  
+	qual = input("Enter Qualification")
+	command = "INSERT INTO QUALIFICATIONS VALUES ( " + staff + ", \'" + qual + "\')"
 	print(command)
 	c.execute(command)
 	db.commit()
 	# except:
-	# 	print("Error registering new patient")
-	# 	db.rollback()
+	# 	print("Error adding Qualification")
+
+def addpatient(c, db):
+	try:
+		patid = input("Enter PatientID: ")
+		fname = input("Enter First Name: ")
+		minit = input("Enter Middle Initials: ")
+		lname = input("Enter Last Name: ")
+		bldg = input("Enter Blood Group: ")
+		doa = input("Enter Date of Admission: ")
+		wingid = input("Enter WingID: ")
+		room = input("Enter Room no: ")
+
+		command = "INSERT INTO PATIENT VALUES (" + patid + ',\'' + fname + '\',\''+ minit + '\',\''+ lname + '\',\''+ bldg + '\', \''+ doa + '\', '+ wingid + ',' + room + ')'  
+		print(command)
+		c.execute(command)
+		db.commit()
+	except:
+		print("Error registering new patient")
+		db.rollback()

@@ -42,7 +42,7 @@ def main():
                 insert.addstaff(c,db,doc)
                 print(doc)
                 for q in range(0,int(input("how many qualifications : "))):
-                    qual = input("enter qualifications : ")
+                    insert.addqual(c,db,doc['StaffID'])
                 
             
             if etype == "nurse":
