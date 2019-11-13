@@ -2,6 +2,7 @@ import pymysql,sys,random
 import bfun
 import insert
 import update
+import calculate
 
 def main():
     db = pymysql.connect("localhost","newuser","password","TDB" )
@@ -68,14 +69,15 @@ def main():
             
         if val == 2:
             print(val)
-            # update.update_patient(c,db)
+            update.update_patient(c,db)
         if val == 3:
             print(val)
         if val == 4:
             print(val)
-            # update.update_staff_salary(c, db)
+            update.update_staff_salary(c, db)
         if val == 5:
             print(val)
+            calculate.print_bill(c,db)
         if val == 6:
             print(val)
         if val == 7:

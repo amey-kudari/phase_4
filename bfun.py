@@ -94,6 +94,10 @@ def create_tables(c,db):
 			Qual   		VARCHAR(50)
 			);""")
 
+		# c.execute("insert into ROOM values (1, 123, 1, 1200);")
+		# c.execute("insert into ROOM values (1, 223, 2, 1100);")
+		# c.execute("insert into ROOM values (1, 323, 3, 1500);")
+
 		db.commit()
 	except:
 		print("ERROR CREATING TABLES, PLEASE TRY AGAIN")
